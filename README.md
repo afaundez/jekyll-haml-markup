@@ -1,6 +1,8 @@
-# JEKYLL-HAML-MARKUP
+# Jekyll Haml Markup
 
 [Jekyll](https://jekyllrb.com) plugin that enables [Haml](http://haml.info) as a markup option for layouts and partials.
+
+**Note**: This gem overrides a few jekyll methods and it lacks of testing.
 
 ## Installation
 
@@ -14,16 +16,23 @@ gem 'jekyll-haml-markup', group: :jekyll_plugins
 
 You just need to save your layout or template with extension `.haml`, replacing any other extension.
 
-The haml markup will be rendered before the [Liquid](http://shopify.github.io/liquid/) parsing, that means that you will need to escape with `\` any line that doesn't match haml syntax. For example:
+The layout haml markup is rendered with hooks before the [Liquid](http://shopify.github.io/liquid/) render phase and modify version of the `include` tag is in charge of the partials.
 
 ```haml
 !!!
 %html
   %head
-    \{% asset style.css %}
+    {% assets style.css  %}
   %body
-    \{{ content }}
+    %head
+      {% include head.haml  %}
+    %main
+      {{ content }}
+    %footer
+      {% include footer.haml  %}
 ```
+
+Front-matter headers are not working on partials.
 
 ## Development
 

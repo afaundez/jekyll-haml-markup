@@ -25,7 +25,7 @@ module Jekyll
         when "lib-haml" then return Jekyll::Haml::Parser.new(@config)
         end
       end
-
+      
       def convert(content)
         get_processor.convert content
       end

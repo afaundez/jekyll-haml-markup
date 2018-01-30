@@ -1,7 +1,5 @@
 require 'jekyll/tags/include'
 
-# frozen_string_literal: true
-
 module Jekyll
   module Tags
     class IncludeTag < Liquid::Tag
