@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Jekyll plugin to use Haml on templates.}
   spec.description   = %q{Jekyll plugin that add the option to write layouts and partials in Haml.}
-  spec.homepage      = 'https://github.com/afaundez/jekyll-haml'
+  spec.homepage      = 'https://github.com/afaundez/jekyll-haml-markup'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
