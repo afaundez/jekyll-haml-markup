@@ -8,7 +8,10 @@ module Jekyll
     DEFAULTS = Configuration[{
       'haml_ext' => 'haml',
       'haml' => 'lib-haml',
-      'lib-haml' => {},
+      'lib-haml' => {
+        attr_wrapper: '"',
+        escape_attrs: false
+      },
 
       # Where things are
       "source"              => Dir.pwd,
