@@ -2,7 +2,7 @@
 
 [Jekyll](https://jekyllrb.com) plugin that enables [Haml](http://haml.info) as a markup option for layouts and partials.
 
-**Note**: This gem overrides a few jekyll methods and it lacks of testing.
+**Note**: This gem overwrites the `include` jekyll tag.
 
 ## Installation
 
@@ -22,14 +22,17 @@ The layout haml markup is rendered with hooks before the [Liquid](http://shopify
 !!!
 %html
   %head
-    {% assets style.css  %}
+    %title Fake title
+    %link{href: "{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}", rel: "stylesheet", type: 'text/css'}
+    %link(href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet" type='text/css')
   %body
-    %head
-      {% include head.haml  %}
+    %header
+      {% include header.haml  %}
     %main
       {{ content }}
     %footer
-      {% include footer.haml  %}
+      {% include footer.html  %}
+    %script{src: "{{ '/assets/javascript/script.css?v=' | append: site.github.build_revision | relative_url }}"}
 ```
 
 Front-matter headers are not working on partials.

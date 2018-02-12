@@ -1,9 +1,8 @@
 require 'test_helper'
-require 'liquid'
 
 describe Haml do
   before do
-    @haml_converter = Jekyll::Converters::Haml.new Jekyll::Configuration.from({})
+    @haml_converter = Jekyll::Converters::Haml.new
   end
 
   it 'should render html' do
@@ -11,7 +10,7 @@ describe Haml do
     @haml_converter.convert("%p test\n").must_equal "<p>test</p>\n"
   end
 
-  it "render with" do
+  it "should render with escaped quotes" do
     input = <<~HAML
       %link(href="{{ '/assets/css/style.css?v=\\\\\\"12345\\\\\\"' }}" rel="stylesheet" type="text/css")
     HAML

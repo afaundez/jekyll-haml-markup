@@ -1,9 +1,9 @@
-require 'jekyll/tags/include'
-require 'jekyll/converters/haml'
+require 'jekyll'
+require 'liquid'
 
 module Jekyll
   module Tags
-    class IncludeTag < Liquid::Tag
+    class HamlInclude < IncludeTag
 
       def read_file(file, context)
         content = File.read file, file_read_opts(context)
@@ -18,3 +18,5 @@ module Jekyll
     end
   end
 end
+
+Liquid::Template.register_tag 'include', Jekyll::Tags::HamlInclude

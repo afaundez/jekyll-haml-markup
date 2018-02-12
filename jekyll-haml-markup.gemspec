@@ -1,7 +1,7 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jekyll-haml-markup/version'
+require 'jekyll/haml/markup/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-haml-markup"
@@ -24,7 +24,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency 'nokogiri', '~> 1.6', '>= 1.6.8'
 
   spec.add_runtime_dependency 'jekyll', '~> 3.7'
+  spec.add_runtime_dependency 'liquid', '~> 4.0'
   spec.add_runtime_dependency 'haml', '~> 5.0'
 end
