@@ -17,7 +17,7 @@ def source_dir(*subdirs)
 end
 
 def dest_dir(*subdirs)
-  test_dir('tmp', *subdirs)
+  test_dir('.tmp', *subdirs)
 end
 
 def default_configuration
