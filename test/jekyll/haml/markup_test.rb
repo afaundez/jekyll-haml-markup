@@ -5,7 +5,7 @@ describe Jekyll::Haml::Markup do
   before do
     options = {}
     options['source'] = source_dir('sites', 'fake')
-    @destination = Dir.mktmpdir ['fake'], dest_dir
+    @destination = Dir.mktmpdir 'fake', dest_dir
     options['destination'] = @destination
     config = Jekyll::Configuration::DEFAULTS.merge options
     @site = fixture_site config

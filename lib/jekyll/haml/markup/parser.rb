@@ -18,7 +18,7 @@ module Jekyll
 
       def convert(content)
         document = ::Haml::Engine.new(content, @config)
-        html_output = document.render
+        html_output = document.render.split("\n").join
         if @config["show_warnings"]
           document.warnings.each do |warning|
             Jekyll.logger.warn "Haml warning:", warning
