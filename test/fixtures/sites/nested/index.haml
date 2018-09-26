@@ -1,0 +1,11 @@
+---
+---
+{% for post in site.posts %}
+.post
+  .post-content
+    %h2 {{ post.title }}
+    %p{{ post.date | date: '%Y' }}
+    {{ post.content }}
+  .post-nested
+    {{ post.title }}
+{% endfor %}
