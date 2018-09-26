@@ -27,6 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'nokogiri', '~> 1.6', '>= 1.6.8'
 
   spec.add_runtime_dependency 'jekyll', '~> 3.0'
-  spec.add_runtime_dependency 'liquid', '>= 3.0'
-  spec.add_runtime_dependency 'haml', '>= 4.0'
+  spec.add_runtime_dependency 'haml', '~> 4'
 end
