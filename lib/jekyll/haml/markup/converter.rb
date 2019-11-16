@@ -2,10 +2,10 @@ require 'jekyll'
 
 module Jekyll
   module Converters
+    # haml converter
     class Haml < Converter
-
       def extname_list
-        @extname_list ||= haml_conf["haml_ext"].split(",").map do |e|
+        @extname_list ||= haml_conf['haml_ext'].split(',').map do |e|
           ".#{e.downcase}"
         end
       end
@@ -14,18 +14,18 @@ module Jekyll
         extname_list.include?(ext.downcase)
       end
 
-      def output_ext(ext)
+      def output_ext(_ext)
         '.html'
       end
 
-      def get_processor
+      def processor
         case haml_conf['haml'].downcase
-        when 'lib-haml' then return Jekyll::Haml::Parser.new haml_conf
+        when 'lib-haml' then Jekyll::Haml::Parser.new haml_conf
         end
       end
 
       def convert(content)
-        get_processor.convert content
+        processor.convert content
       end
 
       def haml_conf

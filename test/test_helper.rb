@@ -1,8 +1,7 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'jekyll-haml-markup'
 
 require 'minitest/autorun'
-
 
 def root_dir(*subdirs)
   File.expand_path(File.join('..', *subdirs), __dir__)
@@ -29,13 +28,8 @@ def build_configs(overrides, base_hash = default_configuration)
 end
 
 def site_configuration(overrides = {})
-  full_overrides = build_configs(overrides, build_configs({
-    "destination" => dest_dir,
-    "incremental" => false,
-  }))
-  # Jekyll::Configuration.from(full_overrides.merge({
-  #   "source" => source_dir,
-  # }))
+  configs = build_configs 'destination' => dest_dir, 'incremental' => false
+  build_configs overrides, configs
 end
 
 def fixture_site(overrides = {})

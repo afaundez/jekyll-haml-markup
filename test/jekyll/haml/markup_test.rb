@@ -18,6 +18,7 @@ describe Jekyll::Haml::Markup do
 
   it 'should load a complete site' do
     xslt = Nokogiri::XSLT xls
+    xslt.wont_be_nil
     html = Nokogiri::HTML File.read File.join(@destination, 'index.html')
     html.xpath('/html/head').wont_be_empty
     html.xpath('/html/body').wont_be_empty
