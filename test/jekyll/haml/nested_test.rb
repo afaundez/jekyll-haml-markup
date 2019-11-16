@@ -19,7 +19,7 @@ describe Jekyll::Haml::Markup do
   it 'should load a neasted site' do
     html = Nokogiri::HTML File.read File.join(@destination, 'index.html')
     html.wont_be_nil
-    puts xslt.apply_to(html).to_s
-    html.xpath('/html/body/div/article/div/p/blockquote').wont_be_empty
+    html.xpath('/html/body/div/article/div/p').wont_be_empty
+    html.xpath('/html/body/div/article/div/blockquote').wont_be_empty
   end
 end
