@@ -1,4 +1,9 @@
 %nav
   %ul
     %li
-      %a{href: "/"} Fake {{ page.header }}
+      %a{href: "/", class: 'home', :selected => true} Index (link with haml {} attributes)
+    %li
+      %a(href="/contact" class='contact' selected=false) Index (link with haml () attributes)
+    %li
+      :markdown
+        [About (markdown filter)](/about)

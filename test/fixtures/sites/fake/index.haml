@@ -2,6 +2,15 @@
 layout: default
 footer: footer from index
 header: header from index
+title: Index page
+permalink: /
 ---
-%h1 Fake title
-%p Fake paragraph
+%h1 {{ page.title }}
+%section.posts
+  <h2>Posts</h2>
+  {% for post in site.posts %}
+  %article.post
+    %p Posted <time datetime="{{ post.date }}">today</time>.
+    {% for tag in post.tags %}<span>{{ tag }}</span>{% endfor %}
+    {{ post }}
+  {% endfor %}

@@ -1,17 +1,21 @@
 !!!
 %html
   %head
-    %title Fake title
+    %title
+      = "Default (ruby interpreted) "
+      layout (plain text)
+      \ =  "escaped" + "text"
     %link{href: "{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}", rel: "stylesheet", type: 'text/css'}
     %link(href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet" type='text/css')
   %body
     %header
       {% include header.haml %}
-      {% for value in (1..5) %}
-      %nav {{ value }}
-      {% endfor %}
     %main
       {{ content }}
+      \
     %footer
       {% include footer.html %}
     %script{src: "{{ '/assets/javascript/script.css?v=' | append: site.github.build_revision | relative_url }}"}
+  :javascript
+  console.log('end of body');
+  <!-- HTML comment render tag -->
