@@ -36,7 +36,7 @@ module Jekyll
       end
 
       def join_frontmatter_and_html(frontmatter, document)
-        frontmatter + document
+        [frontmatter, document].join
       end
     end
   end
