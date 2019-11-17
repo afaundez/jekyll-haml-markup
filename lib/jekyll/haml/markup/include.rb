@@ -8,9 +8,8 @@ module Jekyll
       def read_file(file, context)
         return super file, context unless matches_a_haml_template file
         file_content = read_file_with_context file, context
-        frontmatter, template = split_frontmatter_and_template file_content
-        document = compile_haml_to_html template
-        join_frontmatter_and_html frontmatter, document
+        template = split_frontmatter_and_template file_content
+        compile_haml_to_html template
       end
 
       private
@@ -24,19 +23,12 @@ module Jekyll
       end
 
       def split_frontmatter_and_template(file_content)
-        if file_content =~ Document::YAML_FRONT_MATTER_REGEXP
-          frontmatter = Regexp.last_match 1
-          template = $POSTMATCH
-        end
-        [frontmatter, template || file_content]
+        return $POSTMATCH if file_content =~ Document::YAML_FRONT_MATTER_REGEXP
+        file_content
       end
 
       def compile_haml_to_html(template)
         Jekyll::Haml::Parser.compile template
-      end
-
-      def join_frontmatter_and_html(frontmatter, document)
-        [frontmatter, document].join
       end
     end
   end
