@@ -94,7 +94,7 @@ DEPENDENCIES
   minitest (~> 5.0)
   nokogiri (~> 1.6, >= 1.6.8)
   rake (~> 10.0)
-  rubocop (~> 0.57.2)
+  rubocop (~> 0.57, >= 0.57.2)
 
 BUNDLED WITH
    1.17.3
