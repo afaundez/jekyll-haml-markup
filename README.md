@@ -1,12 +1,10 @@
 # Jekyll Haml Markup
 
-[Jekyll](https://jekyllrb.com) plugin that enables [Haml](http://haml.info) as a markup option for layouts and partials.
-
-**Note**: This gem overwrites the `include` jekyll tag.
+[Jekyll](https://jekyllrb.com) plugin that enables [Haml](http://haml.info) as a markup option for layouts, partials, and pages.
 
 ## Installation
 
-Add it to your Gemfile:
+Add to your Gemfile:
 
 ```ruby
 gem 'jekyll-haml-markup', group: :jekyll_plugins
@@ -14,34 +12,14 @@ gem 'jekyll-haml-markup', group: :jekyll_plugins
 
 ## Usage
 
-You just need to save your layout or template with extension `.haml`, replacing any other extension.
-
-The layout haml markup is rendered with hooks before the [Liquid](http://shopify.github.io/liquid/) render phase and modify version of the `include` tag is in charge of the partials.
-
-```haml
-!!!
-%html
-  %head
-    %title Fake title
-    %link{href: "{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}", rel: "stylesheet", type: 'text/css'}
-    %link(href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet" type='text/css')
-  %body
-    %header
-      {% include header.haml  %}
-    %main
-      {{ content }}
-    %footer
-      {% include footer.html  %}
-    %script{src: "{{ '/assets/javascript/script.css?v=' | append: site.github.build_revision | relative_url }}"}
-```
-
-Front-matter headers are not working on partials.
+Name your layouts, partials, and pages with the `.haml` extension. This plugin intercepts the default `include` and compile your Haml template to HTML.
 
 ## Development
+This gem uses a hook for Haml layouts compiling, modifies the `include` tag, and add a Haml converter.
 
-I started this gem because I couldn't make work the gem [jekyll-haml](https://github.com/samvincent/jekyll-haml).
+There are lots of border cases that have to be tested before production use.
 
-At this moment, this gem just works overriding [Jekyll](https://github.com/jekyll/jekyll) classes and methods. It's not a stable option and it has to be reviewed. If you want to help, just email me.
+I started this gem because I couldn't make work the [jekyll-haml](https://github.com/samvincent/jekyll-haml) gem, which seems inactive.
 
 ## Contributing
 
@@ -49,8 +27,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/afaund
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open-source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Everyone interacting in the Jekyll::Haml::Markup project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/jekyll-haml-markup/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Jekyll::Haml::Markup project’s codebases, issue trackers, chat rooms, and mailing lists are expected to follow the [code of conduct](https://github.com/[USERNAME]/jekyll-haml-markup/blob/master/CODE_OF_CONDUCT.md).
