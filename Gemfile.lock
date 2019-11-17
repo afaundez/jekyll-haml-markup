@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-haml-markup (0.1.4)
+    jekyll-haml-markup (0.1.5)
       haml (~> 5.0, >= 5.0.0)
       jekyll (>= 3.0, < 5.0)
 
