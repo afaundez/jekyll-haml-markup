@@ -7,6 +7,9 @@
   %body
     %header
       {% include header.haml %}
+      {% for value in (1..5) %}
+      %nav {{ value }}
+      {% endfor %}
     %main
       {{ content }}
     %footer
