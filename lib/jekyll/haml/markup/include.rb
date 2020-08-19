@@ -19,7 +19,7 @@ module Jekyll
       end
 
       def read_file_with_context(file, context)
-        File.read file, file_read_opts(context)
+        File.read file, **file_read_opts(context)
       end
 
       def split_frontmatter_and_template(file_content)
