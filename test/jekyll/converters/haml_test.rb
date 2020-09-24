@@ -6,8 +6,8 @@ describe Haml do
   end
 
   it 'should render html' do
-    @haml_converter.convert('%p test').must_equal '<p>test</p>'
-    @haml_converter.convert("%p test\n").must_equal '<p>test</p>'
+    expect(@haml_converter.convert('%p test')).must_equal '<p>test</p>'
+    expect(@haml_converter.convert("%p test\n")).must_equal '<p>test</p>'
   end
 
   it 'should render with escaped quotes' do
@@ -19,12 +19,12 @@ describe Haml do
     <link href="{{ '/assets/css/style.css?v=\\\"12345\\\"' }}" rel="stylesheet" type="text/css">
     HAML
     haml_output = @haml_converter.convert(input)
-    haml_output.must_equal haml_expected
+    expect(haml_output).must_equal haml_expected
 
     liquid_expected = <<-HAML.strip
     <link href="/assets/css/style.css?v=\\\"12345\\\"" rel="stylesheet" type="text/css">
     HAML
     liquid_output = Liquid::Template.parse(haml_output).render
-    liquid_output.must_equal liquid_expected
+    expect(liquid_output).must_equal liquid_expected
   end
 end
